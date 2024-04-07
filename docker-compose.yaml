@@ -1,0 +1,15 @@
+---
+version: "3.8"
+services:
+  trilium:
+    image: zadam/trilium:0.63-latest
+    container_name: trilium
+    restart: unless-stopped
+    ports:
+      - 0.0.0.0:9001:8080
+    environment:
+      - "USER_UID=${UID}"
+      - "USER_GID=${GID}"
+    volumes:
+      - /opt/trilium:/home/node/trilium-data
+
